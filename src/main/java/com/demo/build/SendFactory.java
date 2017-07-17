@@ -4,14 +4,11 @@ import com.demo.Client;
 import com.demo.send.DirectProducer;
 import com.demo.send.FanoutProducer;
 import com.demo.send.TopicProducer;
-import com.oracle.jrockit.jfr.Producer;
 
 /**
  * Created by chenynjyy on 2017/7/15 0015.
  */
 public class SendFactory {
-
-    enum Status {}
 
     public static Client build() {
 

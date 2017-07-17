@@ -4,6 +4,8 @@ import com.demo.build.RMQFactory;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -13,9 +15,13 @@ import java.util.concurrent.TimeoutException;
  */
 public abstract class Client {
 
+    protected Logger logger = LoggerFactory.getLogger(getClass());
+
     protected abstract void declareAndBind(Channel channel) throws IOException;
 
     protected abstract void action(Channel channel) throws IOException;
+
+    protected abstract void ack(Channel channel);
 
     protected void go() throws IOException, TimeoutException {
 
@@ -40,21 +46,12 @@ public abstract class Client {
             //发送/接收数据
             action(channel);
 
-            /**
-             * 确认消息是否到达broker
-             */
-            boolean isConfirm = channel.waitForConfirms();
-            if(isConfirm) {
-                System.out.println("发送broker成功");
-            } else {
-                System.out.println("发送broker失败");
-            }
+            //确认信息是否到达
+            ack(channel);
 
         } catch (IOException e) {
             e.printStackTrace();
         } catch (TimeoutException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
             if(channel != null)
@@ -68,7 +65,6 @@ public abstract class Client {
                 } catch (IOException e) {
                 }
         }
-
 
     }
 
