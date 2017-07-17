@@ -65,10 +65,10 @@ public class BlockingComsumer extends Client {
 
                 logger.info(
                         "messageCount = " + messageCount + "\n" +
-                                "basicProperties = " + basicProperties.toString() + "\n" +
-                                "envelope exchange = " + envelope.getExchange() + ", envelope routingkey = " + envelope.getRoutingKey() + ", envelope deliverytag = " + envelope.getDeliveryTag() + "\n" +
-                                "body = " + new String(body) + "\n" +
-                                "---------------------------");
+                        "basicProperties = " + basicProperties.toString() + "\n" +
+                        "envelope exchange = " + envelope.getExchange() + ", envelope routingkey = " + envelope.getRoutingKey() + ", envelope deliverytag = " + envelope.getDeliveryTag() + "\n" +
+                        "body = " + new String(body) + "\n" +
+                        "---------------------------");
             }
 
         }
