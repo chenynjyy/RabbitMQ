@@ -8,7 +8,8 @@ import java.io.IOException;
 
 /**
  * Created by chenynjyy on 2017/7/15 0015.<br/>
- * 主题模式
+ * 主题模式 <br/>
+ * routingKey与bindingKey做模式匹配
  */
 public class TopicProducer extends Producer {
 

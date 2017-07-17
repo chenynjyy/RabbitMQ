@@ -8,7 +8,8 @@ import java.io.IOException;
 
 /**
  * Created by chenynjyy on 2017/7/15 0015. <br/>
- * 广播模式
+ * 广播模式 <br/>
+ * 无routingKey
  */
 public class FanoutProducer extends Producer {
 

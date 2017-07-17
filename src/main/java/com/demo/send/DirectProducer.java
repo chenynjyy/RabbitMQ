@@ -7,8 +7,9 @@ import com.rabbitmq.client.Channel;
 import java.io.IOException;
 
 /**
- * Created by chenynjyy on 2017/7/15 0015.
- * 订阅模式 pub/sub
+ * Created by chenynjyy on 2017/7/15 0015. <br/>
+ * 路由/直连模式 routing <br/>
+ * routingKey与bindingKey一致
  */
 public class DirectProducer extends Producer {
 
